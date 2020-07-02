@@ -8,12 +8,10 @@
     "pro": "production"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest __tests__ --watch",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "build:check": "tsc -p",
-    "build:server": "tsc -p ./tsconfig.server.json",
-    "build:client": "tsc -p ./tsconfig.client.json",
     "build": "rm -rf ./build && tsc -p ./tsconfig.json",
     "start:server": "ts-node-dev -d --respawn --transpileOnly --ignore-watch node_modules src/server/server.ts",
     "start:client": "cd client && npm start",
