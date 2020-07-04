@@ -1,5 +1,4 @@
 import * as mongoose from 'mongoose';
-import { TInput } from '../@types/index';
 
 const dbConnector = (db: string): mongoose.Connection => {
   const connect = () => {
