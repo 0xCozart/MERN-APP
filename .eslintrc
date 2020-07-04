@@ -8,5 +8,9 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-  "rules": { "no-console": 0, "prettier/prettier": 2 }
+  "rules": {
+    "no-console": 0,
+    "prettier/prettier": 2,
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  }
 }

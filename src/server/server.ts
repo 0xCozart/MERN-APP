@@ -1,7 +1,7 @@
-import routes from './routes';
 import app from './app';
-import dbConnector from './db/connector';
-import { PATH, MONGO_URI } from './config/index';
+import { connectDB } from './db/database';
+import { PORT } from './config';
 
-dbConnector(MONGO_URI);
-routes({ app });
+connectDB();
+
+app.listen(5000, () => console.log(`Server started on http:localhost:${PORT}`));
