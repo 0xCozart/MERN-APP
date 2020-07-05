@@ -8,7 +8,7 @@ export async function findOneOrCreate(
   if (record) {
     return record;
   } else {
-    return this.create();
+    return this.create({ userId });
   }
 }
 
