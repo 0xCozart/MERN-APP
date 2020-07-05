@@ -5,7 +5,6 @@ let database: Mongoose.Connection;
 
 export const connectDB = () => {
   if (database) return;
-  console.error(MONGO_URI);
   Mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useFindAndModify: true,
