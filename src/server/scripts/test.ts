@@ -18,15 +18,13 @@ import { UserModel } from '../db/users/users.model';
     age: 34
   });
   const numOfUsers = (await UserModel.find()).length;
-  console.log({ twenties, newUser.toObject(), existingUser, numOfUsers });
+  console.log({ twenties, newUser, existingUser, numOfUsers });
 
   // test instance methods
-  if (existingUser) {
-    console.log('existing');
-    await existingUser.setLastUpdated();
-    const siblings = await existingUser.sameLastName();
-    console.log({ siblings });
-  }
+
+  await existingUser.setLastUpdated();
+  const siblings = await existingUser.sameLastName();
+  console.log({ siblings });
 
   disconnectDB();
 })();

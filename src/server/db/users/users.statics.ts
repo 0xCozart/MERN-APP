@@ -1,14 +1,20 @@
 import { IUserDocument, IUserModel } from '../../@types/users.types';
 
+interface queryParams {
+  firstName: string;
+  lastName: string;
+  age: number;
+}
+
 export async function findOneOrCreate(
   this: IUserModel,
-  userId: string
+  { firstName, lastName, age }: queryParams
 ): Promise<IUserDocument> {
-  const record = await this.findOne({ userId });
+  const record = await this.findOne({ firstName, lastName, age });
   if (record) {
     return record;
   } else {
-    return this.create();
+    return this.create({ firstName, lastName, age });
   }
 }
 
