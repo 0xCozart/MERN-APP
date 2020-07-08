@@ -42,12 +42,9 @@
 
     /* Module Resolution Options */
     // "moduleResolution": "node",            /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
-    // "baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
-    // "paths": {},                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+    "baseUrl": "./src" /* Base directory to resolve non-absolute module names. */,
     "rootDirs": [
-      // "src"
-      "src/client",
-      "src/server"
+      "src"
     ] /* List of root folders whose combined content represents the structure of the project at runtime. */,
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
     // "types": [],                           /* Type declaration files to be included in compilation. */
@@ -72,8 +69,16 @@
 
     // CUSTOM
     "resolveJsonModule": true,
-    "pretty": true
+    "pretty": true,
+    "paths": {
+      "@users.model": ["server/db/users/users.model.ts"],
+      "@users.schema": ["server/db/users/users.schema.ts"],
+      "@users.methods": ["server/db/users/users.methods.ts"],
+      "@users.statics": ["server/db/users/users.statics.ts"],
+      "@users.types": ["server/@types/users.types.ts"],
+      "@database": ["server/db/database.ts"]
+    }
   },
   // "include": ["src"]
-  "exclude": ["__tests__/", "./build", ".next/", ".env"]
+  "exclude": ["next/"]
 }

@@ -20,6 +20,15 @@
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.6",
     "@types/mongoose": "^5.7.29",
-    "@types/node": "^14.0.14"
+    "@types/node": "^14.0.14",
+    "module-alias": "^2.2.2"
+  },
+  "_moduleAliases": {
+    "@users.model": "/db/users/users.model.ts",
+    "@users.schema": "db/users/users.schema.ts",
+    "@users.methods": "db/users/users.methods.ts",
+    "@users.statics": "db/users/users.statics.ts",
+    "@users.types": "@types/users.types.ts",
+    "@database": "db/database.ts"
   }
 }

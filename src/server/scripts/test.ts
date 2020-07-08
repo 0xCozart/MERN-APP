@@ -1,5 +1,5 @@
 import { connectDB, disconnectDB } from '../db/database';
-import { UserModel } from '../db/users/users.model';
+import UserModel from '../db/users/users.model';
 
 (async () => {
   connectDB();

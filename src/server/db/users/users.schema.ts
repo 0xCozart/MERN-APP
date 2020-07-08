@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose';
 import { findOneOrCreate, findByAge } from './users.statics';
-import { setLastUpdated, sameLastName } from './users.method';
+import { setLastUpdated, sameLastName } from './users.methods';
 
 const UserSchema = new Schema({
   firstName: { type: String, required: true },

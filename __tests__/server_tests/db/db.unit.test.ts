@@ -1,5 +1,9 @@
-import UserModel from '../../../src/server/db/users/users.model';
-import UserSchema from '../../../src/server/db/users/users.schema';
+require('module-alias/register');
+import UserModel from '@users.model';
+import UserSchema from '@users.schema';
+import { IUserDocument, IUserModel } from '@users.types';
+import { setLastUpdated, setLastName } from '@users.methods';
+import { findOneOrCreate, findByAge } from '@users.statics';
 
 describe('Create users', () => {
   test('Should create a new user successfully!', () => {
@@ -8,8 +12,13 @@ describe('Create users', () => {
       lastName: 'Dent',
       age: 42,
       dateOfEntry: new Date(),
-      lastUpated: new Date()
+      lastUpdated: new Date()
+      // setLastUpdated: setLastUpdated,
+      // setLastName: setLastName,
+      // findOneOrCreate: findOneOrCreate,
+      // findByAge: findByAge
     };
-    const spy = jest.spyOn(UserModel, "create").
+    // Creates a mock function, but also tracks calls to <UserModel['create']>.
+    const spy = jest.spyOn(UserModel, 'create').mockReturnValue(mockUser);
   });
 });
