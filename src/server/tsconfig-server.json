@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig-base.json",
+  "compilerOptions": {
+    "outDir": "../../build/server",
+    "rootDir": ".",
+    "baseUrl": "../../",
+    "paths": {
+      "@users.model": ["server/db/users/users.model.ts"],
+      "@users.schema": ["server/db/users/users.schema.ts"],
+      "@users.methods": ["server/db/users/users.methods.ts"],
+      "@users.statics": ["server/db/users/users.statics.ts"],
+      "@users.types": ["server/@types/users.types.ts"],
+      "@database": ["server/db/database.ts"]
+    }
+  }
+}

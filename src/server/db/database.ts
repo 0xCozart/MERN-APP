@@ -3,8 +3,10 @@ import { MONGO_URI } from '../config';
 
 let database: Mongoose.Connection;
 
-export const connectDB = () => {
-  if (database) return;
+const connectDB = () => {
+  // Checls if connection open
+  if (database) return database;
+
   Mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useFindAndModify: true,
@@ -17,17 +19,11 @@ export const connectDB = () => {
   database.once('open', async () => {
     console.log('Connected to database...');
   });
-
   database.on('error', () => {
     console.log('Error connecting to database');
   });
+
+  return database;
 };
 
-export const disconnectDB = () => {
-  if (!database) {
-    return;
-  } else {
-    Mongoose.disconnect;
-    console.log('Disconnected from database... bye');
-  }
-};
+export default connectDB;

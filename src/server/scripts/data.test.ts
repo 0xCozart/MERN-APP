@@ -1,8 +1,9 @@
-import { UserModel } from '../db/users/users.model';
-import { connectDB, disconnectDB } from '../db/database';
+import UserModel from '@users.model';
+import connectDB from '@database';
+const db = connectDB();
 
 (async () => {
-  connectDB();
+  db.on('open', () => console.log('Database opened for script injection'));
 
   const users = [
     { firstName: 'Emma', lastName: 'Bradley', age: 34 },
@@ -22,9 +23,8 @@ import { connectDB, disconnectDB } from '../db/database';
       await UserModel.create(user);
       console.log(`Created user ${user.firstName} ${user.lastName}`);
     }
-
-    disconnectDB();
+    return db.close();
   } catch (e) {
-    console.log(e);
+    return console.log(e);
   }
 })();

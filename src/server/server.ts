@@ -1,8 +1,9 @@
 import 'module-alias/register';
 import app from './app';
-import { connectDB } from './db/database';
+import connectDB from '@database';
 import { PORT } from './config';
-
-connectDB();
+const db = connectDB();
 
 app.listen(PORT, () => console.log(`Server started on http:localhost:${PORT}`));
+
+db.on('open', () => console.log('Mongo...'));

@@ -1,8 +1,9 @@
-import { connectDB, disconnectDB } from '../db/database';
-import UserModel from '../db/users/users.model';
+import connectDB from '@database';
+import UserModel from '@users.model';
+const db = connectDB();
 
 (async () => {
-  connectDB();
+  db.on('open', () => console.log('Database opened for script injection'));
 
   // test static methods
   const twenties = await UserModel.findByAge(20, 29);
@@ -11,7 +12,6 @@ import UserModel from '../db/users/users.model';
     lastName: 'Smith',
     age: 57
   });
-
   const existingUser = await UserModel.findOneOrCreate({
     firstName: 'Emma',
     lastName: 'Bradley',
@@ -21,10 +21,9 @@ import UserModel from '../db/users/users.model';
   console.log({ twenties, newUser, existingUser, numOfUsers });
 
   // test instance methods
-
   await existingUser.setLastUpdated();
   const siblings = await existingUser.sameLastName();
   console.log({ siblings });
 
-  disconnectDB();
+  return db.close();
 })();
